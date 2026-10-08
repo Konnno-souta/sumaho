@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8600e9a9f5fdc5346a0ce8a044618c75, type: 3}
+  m_Name: Stage1-1
+  m_EditorClassIdentifier: Assembly-CSharp::PrincessCollection.Battle.StageData
+  stageName: "1-1 \u306F\u3058\u307E\u308A\u306E\u68EE"
+  titleSprite: {fileID: 2835623014268140515, guid: 52057dde85213ec46b1eb278d99d7243, type: 3}
+  background: {fileID: -1343518637512107228, guid: 680f52917a6859e41baa3b153e77546b, type: 3}
+  lastWaveIsBoss: 1
+  waves:
+  - enemies:
+    - {fileID: 11400000, guid: dee1cbe80cb4d8d49a859f39225a1d47, type: 2}
+    - {fileID: 11400000, guid: 1b2330f1f510a9248b1a93ef35f21d3f, type: 2}
+    - {fileID: 11400000, guid: 4673d3d065eb67b48b9f3b2da868d71f, type: 2}
+  - enemies:
+    - {fileID: 11400000, guid: 028210e04ad7ccc42bf16fdd4d7d166e, type: 2}
+    - {fileID: 11400000, guid: 4673d3d065eb67b48b9f3b2da868d71f, type: 2}
+    - {fileID: 11400000, guid: 779961b6f8dfcb04caa7db9023147eb6, type: 2}
+  - enemies:
+    - {fileID: 11400000, guid: 5b4b389baba785b4d89f7eb4b0805463, type: 2}

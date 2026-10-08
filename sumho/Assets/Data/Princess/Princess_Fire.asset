@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f31c1d72c7283440b8d3b94859600d8, type: 3}
+  m_Name: Princess_Fire
+  m_EditorClassIdentifier: Assembly-CSharp::PrincessCollection.Battle.PrincessData
+  displayName: "\u30EB\u30D3\u30FC\u59EB"
+  element: 0
+  icon: {fileID: -2448329368419257213, guid: a817da77a69a24b4bb55dc47742bf882, type: 3}
+  portrait: {fileID: 1178025802362859598, guid: 070333e8e45699248a1e34843dc71a7d, type: 3}
+  hp: 1200
+  attack: 300
+  skillName: "\u30D5\u30EC\u30A4\u30E0\u30D0\u30FC\u30B9\u30C8"
+  skillType: 0
+  skillPower: 2.5
+  skillGaugeMax: 12

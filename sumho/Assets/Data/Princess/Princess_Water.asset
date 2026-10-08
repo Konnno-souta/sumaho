@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f31c1d72c7283440b8d3b94859600d8, type: 3}
+  m_Name: Princess_Water
+  m_EditorClassIdentifier: Assembly-CSharp::PrincessCollection.Battle.PrincessData
+  displayName: "\u30B5\u30D5\u30A1\u30A4\u30A2\u59EB"
+  element: 1
+  icon: {fileID: -1643851606803674625, guid: a4c3de2d6c2c5c940afd94849510f046, type: 3}
+  portrait: {fileID: 6200488909614091090, guid: e2db5ec174969b542b6b284e5c5a1f58, type: 3}
+  hp: 1400
+  attack: 280
+  skillName: "\u30A2\u30AF\u30A2\u30D2\u30FC\u30EB"
+  skillType: 2
+  skillPower: 0.35
+  skillGaugeMax: 12
