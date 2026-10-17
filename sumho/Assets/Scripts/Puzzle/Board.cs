@@ -113,6 +113,26 @@ namespace PrincessCollection.Puzzle
                 p.transform.localPosition = CellToLocal(x, y);
                 _pieces[x, y] = p;
             }
+
+            StartCoroutine(RefreshSpritesNextFrame());
+        }
+
+        /// <summary>
+        /// 環境によって（DX12 など）最初の1フレームだけ全部の石が同じ画像で描かれることがあるため、
+        /// 1フレーム後に画像を入れ直して描き直させる。
+        /// </summary>
+        IEnumerator RefreshSpritesNextFrame()
+        {
+            yield return null;
+            if (_pieces == null) yield break;
+            foreach (var p in _pieces)
+            {
+                if (p == null) continue;
+                var sr = p.Renderer;
+                var s = pieceSprites[(int)p.Type];
+                sr.sprite = null;
+                sr.sprite = s;
+            }
         }
 
         // ------------------------------------------------------------------

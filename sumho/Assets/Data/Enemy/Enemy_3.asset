@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PrincessCollection.Battle.EnemyData
   displayName: "\u30AF\u30B5\u30CE\u30B3"
   element: 2
-  sprite: {fileID: -404200130443307038, guid: 444d0e29d52aa5447a29037989d19b64, type: 3}
+  sprite: {fileID: -6685626988693155725, guid: c67bd8bafa667e04db2546599352a12d, type: 3}
   displaySize: 420
   hp: 500
   attack: 250
