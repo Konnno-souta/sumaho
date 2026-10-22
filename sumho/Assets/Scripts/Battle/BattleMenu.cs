@@ -1,3 +1,4 @@
+using PrincessCollection.Flow;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,6 +25,8 @@ namespace PrincessCollection.Battle
         [SerializeField] GameObject pausePanel;
         [SerializeField] Button resumeButton;
         [SerializeField] Button retryButton;
+        [Tooltip("ステージ選択へもどるボタン。なくてもよい")]
+        [SerializeField] Button quitButton;
 
         static readonly Color On = new Color(1f, 0.75f, 0.3f);
         static readonly Color Off = new Color(0.25f, 0.2f, 0.3f);
@@ -36,6 +39,8 @@ namespace PrincessCollection.Battle
             menuButton.onClick.AddListener(() => SetPaused(true));
             resumeButton.onClick.AddListener(() => SetPaused(false));
             retryButton.onClick.AddListener(() => { SetPaused(false); battle.Restart(); });
+            if (quitButton != null)
+                quitButton.onClick.AddListener(() => { SetPaused(false); Time.timeScale = 1f; GameSession.GoStageSelect(); });
             pausePanel.SetActive(false);
             Refresh();
         }

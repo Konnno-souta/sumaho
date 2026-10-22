@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace PrincessCollection.Battle
 {
-    /// <summary>勝利／敗北の画面。</summary>
+    /// <summary>勝利／敗北の画面。ボタンは2つ（2つ目はなくても動く）。</summary>
     [RequireComponent(typeof(CanvasGroup))]
     public class ResultView : MonoBehaviour
     {
@@ -13,6 +13,9 @@ namespace PrincessCollection.Battle
         [SerializeField] Text message;
         [SerializeField] Button button;
         [SerializeField] Text buttonText;
+        [Tooltip("2つ目のボタン（ステージ選択へ など）。なくてもよい")]
+        [SerializeField] Button subButton;
+        [SerializeField] Text subButtonText;
 
         CanvasGroup _group;
 
@@ -29,14 +32,31 @@ namespace PrincessCollection.Battle
             _group.interactable = false;
         }
 
-        public IEnumerator Show(bool win, string detail, Action onButton)
+        /// <summary>前のバージョンと同じ呼び方（ボタン1つ）。</summary>
+        public IEnumerator Show(bool win, string detail, Action onButton) =>
+            Show(win, detail, win ? "もう一度あそぶ" : "リトライ", onButton, null, null);
+
+        public IEnumerator Show(bool win, string detail, string mainLabel, Action onMain, string subLabel, Action onSub)
         {
             title.text = win ? "WIN!" : "全滅…";
             title.color = win ? new Color(1f, 0.85f, 0.25f) : new Color(0.7f, 0.75f, 0.9f);
             message.text = detail;
-            buttonText.text = win ? "もう一度あそぶ" : "リトライ";
+
+            buttonText.text = mainLabel;
             button.onClick.RemoveAllListeners();
-            button.onClick.AddListener(() => onButton());
+            button.onClick.AddListener(() => onMain());
+
+            if (subButton != null)
+            {
+                bool hasSub = onSub != null;
+                subButton.gameObject.SetActive(hasSub);
+                subButton.onClick.RemoveAllListeners();
+                if (hasSub)
+                {
+                    if (subButtonText != null) subButtonText.text = subLabel;
+                    subButton.onClick.AddListener(() => onSub());
+                }
+            }
 
             _group.blocksRaycasts = true;
             _group.interactable = true;

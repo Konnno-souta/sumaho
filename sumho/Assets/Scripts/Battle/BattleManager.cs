@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using PrincessCollection.Flow;
 using PrincessCollection.Puzzle;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -77,6 +78,8 @@ namespace PrincessCollection.Battle
         void Start()
         {
             Time.timeScale = 1f;
+            // ステージ選択から来たときは、選ばれたステージを使う（直接再生したときはインスペクタのステージ）
+            if (GameSession.SelectedStage != null) stage = GameSession.SelectedStage;
             if (stage == null || stage.waves.Count == 0)
             {
                 Debug.LogError("[Battle] StageData が設定されていないか、WAVE が空です。", this);
@@ -171,8 +174,28 @@ namespace PrincessCollection.Battle
             {
                 _ended = true;
                 UpdateLock();
-                yield return result.Show(true, $"{stage.stageName} クリア！\n{_turns} ターン", Restart);
+                yield return ShowWin();
             }
+        }
+
+        /// <summary>勝利：クリアを記録して、次へ進むボタンを出す。</summary>
+        IEnumerator ShowWin()
+        {
+            bool firstClear = !GameProgress.IsCleared(stage);
+            bool best = GameProgress.RecordClear(stage, _turns);
+            var next = GameSession.Catalog != null ? GameSession.Catalog.Next(stage) : null;
+            if (firstClear && next != null) GameSession.NewlyUnlocked = next;
+
+            string detail = $"{stage.stageName} クリア！\n{_turns} ターン";
+            if (best && !firstClear) detail += "（最少ターン更新！）";
+            if (firstClear && next != null) detail += $"\n「{next.stageName}」が遊べるようになった！";
+
+            if (next != null)
+                yield return result.Show(true, detail,
+                    "つぎのステージへ", () => GameSession.PlayStage(next), "ステージ選択へ", GameSession.GoStageSelect);
+            else
+                yield return result.Show(true, detail,
+                    "ステージ選択へ", GameSession.GoStageSelect, "もう一度", Restart);
         }
 
         // ------------------------------------------------------------------
@@ -301,7 +324,8 @@ namespace PrincessCollection.Battle
                 {
                     _ended = true;
                     UpdateLock();
-                    yield return result.Show(false, "姫たちは力尽きた…", Restart);
+                    yield return result.Show(false, "姫たちは力尽きた…",
+                        "リトライ", Restart, "ステージ選択へ", GameSession.GoStageSelect);
                     yield break;
                 }
             }
