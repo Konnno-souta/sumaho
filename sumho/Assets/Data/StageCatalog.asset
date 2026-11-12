@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PrincessCollection.Flow.StageCatalog
   areas:
   - areaName: "\u30A8\u30E1\u30E9\u30EB\u30C9\u30D5\u30A9\u30EC\u30B9\u30C8"
-    titleSprite: {fileID: 2835623014268140515, guid: 52057dde85213ec46b1eb278d99d7243, type: 3}
+    titleSprite: {fileID: 21300000, guid: 983465989b110a5459506d0c0879be42, type: 3}
     stages:
     - {fileID: 11400000, guid: 14ac8607062a6e6428b68ebbfcb10427, type: 2}
     - {fileID: 11400000, guid: 5657fda4f154cfe409919936da42a97f, type: 2}
     - {fileID: 11400000, guid: 20ce8537ccf4536478b9b5040a10ed6d, type: 2}
   - areaName: "\u30A2\u30F3\u30D0\u30FC\u30C7\u30B6\u30FC\u30C8"
-    titleSprite: {fileID: -9112356561307149331, guid: 192666389bfe2d645b024f88ddb0fac0, type: 3}
+    titleSprite: {fileID: 21300000, guid: 38d71777192e62440812933d7bd65257, type: 3}
     stages:
     - {fileID: 11400000, guid: eef94a76590fb904193eecb15d454f21, type: 2}
